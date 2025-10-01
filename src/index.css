@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600&family=Montserrat:wght@600;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
@@ -16,279 +24,24 @@ body,
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #08070c;
+  background-color: #000006;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
-.coming-soon {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  background:
-    radial-gradient(120% 120% at 10% 16%, rgba(89, 56, 149, 0.34) 0%, rgba(8, 7, 12, 0) 58%),
-    radial-gradient(80% 120% at 90% 8%, rgba(107, 155, 199, 0.26) 0%, rgba(8, 7, 12, 0) 60%),
-    #08070c;
-  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 3rem);
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
 }
 
-.coming-soon__container {
-  width: min(1120px, 100%);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2.5rem, 4vw, 4rem);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.coming-soon__header {
-  display: flex;
-  justify-content: center;
-  padding-top: clamp(0.5rem, 2vw, 1.5rem);
-}
-
-.coming-soon__logo {
-  width: clamp(6.5rem, 12vw, 7.5rem);
-  height: auto;
-  filter: drop-shadow(0 16px 48px rgba(46, 18, 95, 0.45));
-}
-
-.coming-soon__hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: clamp(1.5rem, 3vw, 2.5rem);
-  border: 1px solid rgba(128, 100, 181, 0.16);
-  background: linear-gradient(150deg, rgba(18, 12, 29, 0.92) 0%, rgba(6, 5, 9, 0.8) 55%, rgba(6, 5, 9, 0.88) 100%);
-  box-shadow:
-    0 40px 60px -32px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(17, 13, 27, 0.8);
-}
-
-.coming-soon__media {
-  position: relative;
-  width: 100%;
-  min-height: clamp(18rem, 50vw, 24rem);
-  background: url('/assets/door-bg.png') center center / cover no-repeat;
-  filter: saturate(1.12) brightness(0.9);
-}
-
-.coming-soon__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 7, 12, 0) 0%, rgba(8, 7, 12, 0.68) 100%);
-}
-
-.coming-soon__content {
-  position: relative;
-  padding: clamp(2.5rem, 6vw, 4rem);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1.5rem, 2.5vw, 2.5rem);
-  z-index: 1;
-}
-
-.coming-soon__badge {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  border-radius: 999px;
-  isolation: isolate;
-}
-
-.coming-soon__badge-border {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: conic-gradient(from 180deg at 50% 50%, #141414 0deg, #b097e9 63deg, #6b9bc7 180deg, #141414 300deg, #141414 360deg);
-  animation: spin-gradient 12s linear infinite;
-  opacity: 0.9;
-}
-
-.coming-soon__badge-label {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.45rem 1.1rem 0.4rem;
-  border-radius: 999px;
-  background: #0b0910;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(93deg, rgba(176, 151, 233, 0.95) 20%, rgba(107, 155, 199, 0.9) 80%);
-}
-
-.coming-soon__content > *:not(.coming-soon__badge) {
-  position: relative;
-}
-
-.coming-soon__title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(3rem, 8vw, 4.75rem);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: transparent;
-  background-image: linear-gradient(93deg, #b097e9 20%, #6b9bc7 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-shadow: 0 0 40px rgba(105, 72, 164, 0.55);
-}
-
-.coming-soon__subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-  line-height: 1.6;
-  font-weight: 500;
-  color: rgba(222, 226, 254, 0.88);
-  max-width: 32rem;
-}
-
-.coming-soon__subtitle span {
-  color: transparent;
-  background-image: linear-gradient(93deg, rgba(176, 151, 233, 0.95) 10%, rgba(107, 155, 199, 0.95) 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  font-weight: 600;
-}
-
-.coming-soon__description {
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
-  line-height: 1.7;
-  color: rgba(243, 244, 255, 0.82);
-  max-width: 28rem;
-}
-
-.coming-soon__cta {
-  margin-top: clamp(0.5rem, 1vw, 0.75rem);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.8rem;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(34, 32, 45, 0.92) 0%, rgba(21, 19, 29, 0.92) 100%);
-  color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
-  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
-}
-
-.coming-soon__cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-  background: linear-gradient(180deg, rgba(44, 41, 58, 0.95) 0%, rgba(30, 27, 39, 0.95) 100%);
-}
-
-.coming-soon__cta:focus-visible {
-  outline: 2px solid rgba(176, 151, 233, 0.8);
-  outline-offset: 4px;
-}
-
-.coming-soon__cta-icon {
+img,
+svg {
   display: block;
-}
-
-.coming-soon__footer {
-  display: grid;
-  gap: 1rem;
-  justify-items: center;
-  text-align: center;
-  color: rgba(225, 223, 238, 0.72);
-  font-size: 0.85rem;
-  padding-bottom: 0.5rem;
-}
-
-.coming-soon__footer img {
-  width: min(520px, 80%);
-  opacity: 0.7;
-}
-
-@media (max-width: 960px) {
-  .coming-soon__content {
-    padding: clamp(2.25rem, 8vw, 3rem) clamp(1.5rem, 8vw, 3rem) clamp(2.75rem, 10vw, 4rem);
-  }
-
-  .coming-soon__title {
-    font-size: clamp(2.8rem, 12vw, 4rem);
-  }
-
-  .coming-soon__subtitle,
-  .coming-soon__description {
-    max-width: none;
-  }
-}
-
-@media (min-width: 961px) {
-  .coming-soon__hero {
-    flex-direction: row-reverse;
-  }
-
-  .coming-soon__media {
-    flex: 0 0 clamp(22rem, 38vw, 32rem);
-    min-height: clamp(24rem, 46vw, 34rem);
-  }
-
-  .coming-soon__media::after {
-    background: linear-gradient(150deg, rgba(8, 7, 12, 0) 0%, rgba(8, 7, 12, 0.74) 100%);
-  }
-
-  .coming-soon__content {
-    flex: 1 1 auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .coming-soon__container {
-    gap: clamp(2rem, 12vw, 3rem);
-  }
-
-  .coming-soon__logo {
-    width: clamp(6rem, 32vw, 7rem);
-  }
-
-  .coming-soon__badge-label {
-    letter-spacing: 0.12em;
-  }
-
-  .coming-soon__media::after {
-    background: linear-gradient(210deg, rgba(8, 7, 12, 0.15) 0%, rgba(8, 7, 12, 0.82) 100%);
-  }
-
-  .coming-soon__hero {
-    box-shadow:
-      0 32px 48px -28px rgba(0, 0, 0, 0.7),
-      inset 0 0 0 1px rgba(17, 13, 27, 0.8);
-  }
-
-  .coming-soon__footer img {
-    width: min(420px, 90%);
-  }
-}
-
-@keyframes spin-gradient {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
